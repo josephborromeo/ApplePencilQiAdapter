@@ -1,0 +1,3 @@
+Pins to wire:
+
+Boot1 & Boot2
