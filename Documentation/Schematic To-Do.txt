@@ -1,3 +1,17 @@
 Pins to wire:
 
-Boot1 & Boot2
+- Boot1 & Boot2
+- Comm1 & Comm2
+- ILIM (Current Limit Set)
+- OUT (To Lightning port)
+- RECT (Connect cap to gnd)
+- TS / CTRL
+
+
+Investigate:
+
+- Clamps1 & Clamp2
+- FOD
+
+
+Follow Layout Guidelines
