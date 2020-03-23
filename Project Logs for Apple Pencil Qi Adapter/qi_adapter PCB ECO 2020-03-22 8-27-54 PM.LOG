@@ -1,0 +1,27 @@
+Added Component: Designator=U(IC_BQ51013BRHLT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Digi-Key_Part_Number"; Value = "296-35638-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digi-Key_Purchase_URL"; Value = "https://www.digikey.com/product-detail/en/texas-instruments/BQ51013BRHLT/296-35638-1-ND/3877679?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "BQ51013BRHLT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "VQFN-20 Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/BQ51013BRHLT/Texas%20Instruments/view-part/46178/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=U-1
+Added Pin To Net: NetName=GND Pin=U-7
+Added Pin To Net: NetName=GND Pin=U-9
+Added Pin To Net: NetName=GND Pin=U-10
+Added Pin To Net: NetName=GND Pin=U-11
+Added Pin To Net: NetName=GND Pin=U-20
+Added Pin To Net: NetName=GND Pin=U-21
+Added Pin To Net: NetName=GND Pin=U-22
+Added Pin To Net: NetName=GND Pin=U-23
+Added Pin To Net: NetName=GND Pin=U-24
+Added Pin To Net: NetName=GND Pin=U-25
+Added Pin To Net: NetName=GND Pin=U-26
+Added Pin To Net: NetName=GND Pin=U-27
+Added Pin To Net: NetName=GND Pin=U-28
+Added Pin To Net: NetName=GND Pin=U-29
+Added Net: Name=GND
+Added Member To Class: ClassName=qi_adapter Member=Component U BQ51013BRHLT
+Added Room: Name=qi_adapter

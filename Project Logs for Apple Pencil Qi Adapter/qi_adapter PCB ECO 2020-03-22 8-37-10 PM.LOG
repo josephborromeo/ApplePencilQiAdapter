@@ -1,0 +1,6 @@
+Added Component: Designator=R?(RESC1005X40X25ML10T10)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "TE Connectivity / AMP"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "1-1622826-8"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=qi_adapter Member=Component R? 1-1622826-8
+Added Room: Name=qi_adapter

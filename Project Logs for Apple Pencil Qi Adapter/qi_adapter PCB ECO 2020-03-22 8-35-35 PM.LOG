@@ -1,0 +1,6 @@
+Added Component: Designator=R?(RESC1608X55X30ML20T10)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Manufacturer"; Value = "KOA Speer"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RK73B1JTTD102J"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=qi_adapter Member=Component R? RK73B1JTTD102J
+Added Room: Name=qi_adapter
