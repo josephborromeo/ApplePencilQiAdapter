@@ -1,17 +1,29 @@
 Pins to wire:
 
-- Boot1 & Boot2
-- Comm1 & Comm2
 - ILIM (Current Limit Set)
-- OUT (To Lightning port)
-- RECT (Connect cap to gnd)
-- TS / CTRL
-
 
 Investigate:
 
-- Clamps1 & Clamp2
-- FOD
+- FOD - Required for ILIM calcs
+
+Footprints:
+- Lightning Connector
+- May need to change coil spacing
 
 
-Follow Layout Guidelines
+General Notes
+-------------
+
+Follow Recommended Layout Guidelines
+
+0402 sized components needed for due to size constraints
+- Comm1 & Comm2 --> 22nF to start. If communication is not good should be changed to a higher capacitance (47nF)
+Can use CHG pin to drive an LED to indicate power transfer. Probably not necessary but if there's space it would be cool
+
+Inductor Dual Resonance Circuit - DONE
+	- Ls = 7.2uH
+	- Ls' ~= 10.5uH
+	- R = 400 mOhms
+	- C1 = 2.413 x 10^-7 --> 241.24 nF            	[.22uF + 22nF] in Parallel
+	- C2 = 3.57 x 10^-9  --> 3.57 nF = 3570 pF	[3300 pF + 270pf] in Parralel
+	- C1 and C1 MUST BE RATED TO 25V

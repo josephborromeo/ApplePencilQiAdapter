@@ -1,0 +1,230 @@
+Added Component: Designator=C1(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "490-12265-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/murata-electronics/GRT155R61E224KE01D/490-12265-1-ND/5416966"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "GRT155R61E224KE01D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.22 uF"; VariantName = "[No Variations]"
+Added Component: Designator=C2(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "311-3823-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/yageo/CC0402ZRY5V8BB223/311-3823-1-ND/8024912"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "CC0402ZRY5V8BB223"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "22 nF"; VariantName = "[No Variations]"
+Added Component: Designator=C3(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "311-3823-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/yageo/CC0402ZRY5V8BB223/311-3823-1-ND/8024912"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "CC0402ZRY5V8BB223"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "22 nF"; VariantName = "[No Variations]"
+Added Component: Designator=C4(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "399-1278-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/kemet/C0402C103K3RACTU/399-1278-1-ND/416054"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "C0402C103K3RACTU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10 nF"; VariantName = "[No Variations]"
+Added Component: Designator=C5(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "311-3823-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/yageo/CC0402ZRY5V8BB223/311-3823-1-ND/8024912"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "CC0402ZRY5V8BB223"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "22 nF"; VariantName = "[No Variations]"
+Added Component: Designator=C6(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "399-1278-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/kemet/C0402C103K3RACTU/399-1278-1-ND/416054"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "C0402C103K3RACTU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "10 nF"; VariantName = "[No Variations]"
+Added Component: Designator=C7(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "732-7542-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/w%C3%BCrth-elektronik/885012205047/732-7542-1-ND/5454169"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Würth Elektronik"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "885012205047"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "3300 pF"; VariantName = "[No Variations]"
+Added Component: Designator=C8(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "399-15315-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/kemet/C0402C271J3GAC7867/399-15315-1-ND/7386713"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "C0402C271J3GAC7867"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "270 pF"; VariantName = "[No Variations]"
+Added Component: Designator=C9(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "490-12269-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/murata-electronics/GRT155R61E474KE01D/490-12269-1-ND/5416970"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "GRT155R61E474KE01D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.19"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.47 uF"; VariantName = "[No Variations]"
+Added Component: Designator=C10(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "490-12269-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/murata-electronics/GRT155R61E474KE01D/490-12269-1-ND/5416970"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "GRT155R61E474KE01D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.19"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.47 uF"; VariantName = "[No Variations]"
+Added Component: Designator=C11(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "478-10788-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/avx-corporation/0402YD475MAT2A/478-10788-1-ND/7536324"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "AVX Corporation"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "0402YD475MAT2A"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.52"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "4.7 uF"; VariantName = "[No Variations]"
+Added Component: Designator=C12(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "1276-1067-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/samsung-electro-mechanics/CL05A105KO5NNNC/1276-1067-1-ND/3889153"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Samsung Electro-Mechanics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "CL05A105KO5NNNC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1 uF"; VariantName = "[No Variations]"
+Added Component: Designator=C13(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "1276-1004-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/samsung-electro-mechanics/CL05F104ZO5NNNC/1276-1004-1-ND/3889090"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Samsung Electro-Mechanics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "CL05F104ZO5NNNC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1 uF"; VariantName = "[No Variations]"
+Added Component: Designator=C14(SMD-0402-CAP)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Available"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digikey Part"; Value = "1276-1004-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/samsung-electro-mechanics/CL05F104ZO5NNNC/1276-1004-1-ND/3889090"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Samsung Electro-Mechanics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "CL05F104ZO5NNNC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.16"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0.1 uF"; VariantName = "[No Variations]"
+Added Component: Designator=R1(SMD-0402-RES)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Digi-Key Part Number"; Value = "311-10KJRCT-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Link"; Value = "https://www.digikey.ca/product-detail/en/yageo/RC0402JR-0710KL/311-10KJRCT-ND/729365"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package / Case"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RC0402JR-0710KL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.17"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Device Package"; Value = "0402"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "±5%"; VariantName = "[No Variations]"
+Added Component: Designator=U1(IC_BQ51013BRHLT)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Digi-Key_Part_Number"; Value = "296-35638-1-ND"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Digi-Key_Purchase_URL"; Value = "https://www.digikey.com/product-detail/en/texas-instruments/BQ51013BRHLT/296-35638-1-ND/3877679?utm_source=snapeda&utm_medium=aggregator&utm_campaign=symbol"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "BQ51013BRHLT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "VQFN-20 Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/BQ51013BRHLT/Texas%20Instruments/view-part/46178/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C12-2
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C14-2
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=GND Pin=U1-1
+Added Pin To Net: NetName=GND Pin=U1-7
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Pin To Net: NetName=GND Pin=U1-10
+Added Pin To Net: NetName=GND Pin=U1-11
+Added Pin To Net: NetName=GND Pin=U1-20
+Added Pin To Net: NetName=GND Pin=U1-21
+Added Pin To Net: NetName=GND Pin=U1-22
+Added Pin To Net: NetName=GND Pin=U1-23
+Added Pin To Net: NetName=GND Pin=U1-24
+Added Pin To Net: NetName=GND Pin=U1-25
+Added Pin To Net: NetName=GND Pin=U1-26
+Added Pin To Net: NetName=GND Pin=U1-27
+Added Pin To Net: NetName=GND Pin=U1-28
+Added Pin To Net: NetName=GND Pin=U1-29
+Added Net: Name=GND
+Added Pin To Net: NetName=NetC1_1 Pin=C1-1
+Added Pin To Net: NetName=NetC1_1 Pin=C3-1
+Added Net: Name=NetC1_1
+Added Pin To Net: NetName=NetC1_2 Pin=C1-2
+Added Pin To Net: NetName=NetC1_2 Pin=C2-1
+Added Pin To Net: NetName=NetC1_2 Pin=C3-2
+Added Pin To Net: NetName=NetC1_2 Pin=C4-1
+Added Pin To Net: NetName=NetC1_2 Pin=C7-1
+Added Pin To Net: NetName=NetC1_2 Pin=C8-1
+Added Pin To Net: NetName=NetC1_2 Pin=C9-1
+Added Pin To Net: NetName=NetC1_2 Pin=U1-2
+Added Net: Name=NetC1_2
+Added Pin To Net: NetName=NetC2_2 Pin=C2-2
+Added Pin To Net: NetName=NetC2_2 Pin=U1-6
+Added Net: Name=NetC2_2
+Added Pin To Net: NetName=NetC4_2 Pin=C4-2
+Added Pin To Net: NetName=NetC4_2 Pin=U1-3
+Added Net: Name=NetC4_2
+Added Pin To Net: NetName=NetC5_1 Pin=C5-1
+Added Pin To Net: NetName=NetC5_1 Pin=C6-1
+Added Pin To Net: NetName=NetC5_1 Pin=C7-2
+Added Pin To Net: NetName=NetC5_1 Pin=C8-2
+Added Pin To Net: NetName=NetC5_1 Pin=C10-1
+Added Pin To Net: NetName=NetC5_1 Pin=U1-19
+Added Net: Name=NetC5_1
+Added Pin To Net: NetName=NetC5_2 Pin=C5-2
+Added Pin To Net: NetName=NetC5_2 Pin=U1-15
+Added Net: Name=NetC5_2
+Added Pin To Net: NetName=NetC6_2 Pin=C6-2
+Added Pin To Net: NetName=NetC6_2 Pin=U1-17
+Added Net: Name=NetC6_2
+Added Pin To Net: NetName=NetC9_2 Pin=C9-2
+Added Pin To Net: NetName=NetC9_2 Pin=U1-5
+Added Net: Name=NetC9_2
+Added Pin To Net: NetName=NetC10_2 Pin=C10-2
+Added Pin To Net: NetName=NetC10_2 Pin=U1-16
+Added Net: Name=NetC10_2
+Added Pin To Net: NetName=NetC11_2 Pin=C11-2
+Added Pin To Net: NetName=NetC11_2 Pin=C13-2
+Added Pin To Net: NetName=NetC11_2 Pin=U1-18
+Added Net: Name=NetC11_2
+Added Pin To Net: NetName=NetC12_1 Pin=C12-1
+Added Pin To Net: NetName=NetC12_1 Pin=C14-1
+Added Pin To Net: NetName=NetC12_1 Pin=U1-4
+Added Net: Name=NetC12_1
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=NetR1_2 Pin=U1-13
+Added Net: Name=NetR1_2
+Added Class: Name=qi_adapter
+Added Room: Name=qi_adapter

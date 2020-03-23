@@ -1,0 +1,7 @@
+Added Component: Designator=L1(Qi Coil)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Digikey Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.ca/products/en/inductors-coils-chokes/wireless-charging-coils/75?k=wireless+coil&k=&pkeyword=wireless+coil&sv=0&pv46=15578&sf=1&FV=-8%7C75&quantity=&ColumnSort=0&page=1&pageSize=25"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC5_1 Pin=L1-1
+Added Member To Class: ClassName=qi_adapter Member=Component L1 Wireless Coil
+Added Room: Name=qi_adapter
