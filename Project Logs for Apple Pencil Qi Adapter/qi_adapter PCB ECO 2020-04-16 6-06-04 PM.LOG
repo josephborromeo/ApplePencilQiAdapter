@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=NetC5_1 Pin=L1-1
+Added Pin To Net: NetName=NetC1_1 Pin=L1-1
+Added Pin To Net: NetName=NetC5_1 Pin=L1-2
+Added Room: Name=qi_adapter
