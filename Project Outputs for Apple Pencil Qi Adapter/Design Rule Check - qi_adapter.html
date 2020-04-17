@@ -1,0 +1,669 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2020-04-16</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11:20:53 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc" class="file"><acronym title="C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc">C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">111</td></tr>
+</table>
+</td>
+</table><a name="IDQCSVTJJELDA3DE0TTBYWXTOQ5EGHVCFPFKYQ20I4NB0SRIXYPRZL"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIUT4KDRUWMHNH5TW403SLXUMEMM4UTTX2CMEAQOMEOHLMOTWPEBI">Clearance Constraint (Gap=6mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCCCDDD1UQWXQH4LBB5BAX3QDSCKDBKHJ3ZRX4XGYQRW2XUL0AYY">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOVLMCI15ZQ0TJIRLUDSGIY4U3J0CZS20X4WELBMHFEFRM32Z1NNN">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAJQBXNX52ZTOPSAE1W1XDA5VUDM52EKJBGY15ZHF4W54L0MSRIIC">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDESJZBYTIDG3CPXJYH0PYZMOP4N0JTYDY3MZ251RURSCOKDPGO0H">Width Constraint (Min=8mil) (Max=8mil) (Preferred=8mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDN4FIKCAMWIBVG2RD4VT1GAZ0QGSUBELQTJCAJNLUQHDMQGHXEGDK">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB1EWEUK1PRIUJVNB1TQXGVFOANQC1U1RKRKIO5CMBFH4O3VIEC0L">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBFDSU302COSAHVZ5U3PIY1JC1INJ1CYRDBHINKGTE3K1LOXF5GHN">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNROYWZXJVM2WF0SVC4XYFAWGCJYLMKQXBHTY1UHW4XCXDLXK1LYM">Minimum Solder Mask Sliver (Gap=6mil) (All),(All)</a></td>
+<td class="column2">28</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3BLCUEG3UEGAINXHGUD2J0XRJKL1BHT3FY2UNDKGZPYI5KHTDFAF">Silk To Solder Mask (Clearance=6mil) (IsPad),(All)</a></td>
+<td class="column2">74</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1OXKP2342ZQVGHNHSPZT3PCBAMTNZYIX2NRJFEKWUJB3BEFOSJSM">Silk to Silk (Clearance=6mil) (All),(All)</a></td>
+<td class="column2">9</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0ZWEE501KDAQB0GLSCI2BR4PNL4DOZEHRDKEPRKQKQHE4EPUPACC">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUVQOHDY0IAPNB5QHHMHLDOHHQPMU2WRXMEUCMRCGOKZHAOT1NYYI">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">111</td>
+</tr>
+</table><br><a name="IDNROYWZXJVM2WF0SVC4XYFAWGCJYLMKQXBHTY1UHW4XCXDLXK1LYM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=6mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=175.564mil|Location2.X=182.814mil|Location1.Y=333.304mil|Location2.Y=340.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=175.564mil|Location2.X=182.814mil|Location1.Y=333.304mil|Location2.Y=340.554mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C10-1(195mil,353.858mil) on Bottom Layer And Pad C10-2(195mil,320mil) on Bottom Layer [Bottom Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=120.564mil|Location2.X=127.814mil|Location1.Y=331.375mil|Location2.Y=338.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=120.564mil|Location2.X=127.814mil|Location1.Y=331.375mil|Location2.Y=338.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C1-1(140mil,351.929mil) on Top Layer And Pad C1-2(140mil,318.071mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=115.564mil|Location2.X=122.814mil|Location1.Y=511.375mil|Location2.Y=518.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=115.564mil|Location2.X=122.814mil|Location1.Y=511.375mil|Location2.Y=518.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C11-1(135mil,498.071mil) on Bottom Layer And Pad C11-2(135mil,531.929mil) on Bottom Layer [Bottom Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1.962mil|Location2.X=9.212mil|Location1.Y=218.304mil|Location2.Y=225.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1.962mil|Location2.X=9.212mil|Location1.Y=218.304mil|Location2.Y=225.554mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C12-1(21.398mil,205mil) on Top Layer And Pad C12-2(21.398mil,238.858mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=170.564mil|Location2.X=177.814mil|Location1.Y=511.375mil|Location2.Y=518.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=170.564mil|Location2.X=177.814mil|Location1.Y=511.375mil|Location2.Y=518.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C13-1(190mil,498.071mil) on Bottom Layer And Pad C13-2(190mil,531.929mil) on Bottom Layer [Bottom Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1.962mil|Location2.X=9.212mil|Location1.Y=143.304mil|Location2.Y=150.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1.962mil|Location2.X=9.212mil|Location1.Y=143.304mil|Location2.Y=150.554mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C14-1(21.398mil,163.858mil) on Top Layer And Pad C14-2(21.398mil,130mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=120.564mil|Location2.X=127.814mil|Location1.Y=333.304mil|Location2.Y=340.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=120.564mil|Location2.X=127.814mil|Location1.Y=333.304mil|Location2.Y=340.554mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C2-1(140mil,353.858mil) on Bottom Layer And Pad C2-2(140mil,320mil) on Bottom Layer [Bottom Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=65.564mil|Location2.X=72.814mil|Location1.Y=331.375mil|Location2.Y=338.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=65.564mil|Location2.X=72.814mil|Location1.Y=331.375mil|Location2.Y=338.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C3-1(85mil,351.929mil) on Top Layer And Pad C3-2(85mil,318.071mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1.962mil|Location2.X=9.212mil|Location1.Y=293.304mil|Location2.Y=300.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1.962mil|Location2.X=9.212mil|Location1.Y=293.304mil|Location2.Y=300.554mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C4-1(21.398mil,313.858mil) on Top Layer And Pad C4-2(21.398mil,280mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=265.564mil|Location2.X=272.814mil|Location1.Y=256.375mil|Location2.Y=263.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=265.564mil|Location2.X=272.814mil|Location1.Y=256.375mil|Location2.Y=263.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C5-1(285mil,276.929mil) on Top Layer And Pad C5-2(285mil,243.071mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=230.564mil|Location2.X=237.814mil|Location1.Y=333.304mil|Location2.Y=340.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=230.564mil|Location2.X=237.814mil|Location1.Y=333.304mil|Location2.Y=340.554mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C6-1(250mil,353.858mil) on Bottom Layer And Pad C6-2(250mil,320mil) on Bottom Layer [Bottom Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=175.564mil|Location2.X=182.814mil|Location1.Y=331.375mil|Location2.Y=338.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=175.564mil|Location2.X=182.814mil|Location1.Y=331.375mil|Location2.Y=338.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C7-1(195mil,318.071mil) on Top Layer And Pad C7-2(195mil,351.929mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=230.564mil|Location2.X=237.814mil|Location1.Y=331.375mil|Location2.Y=338.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=230.564mil|Location2.X=237.814mil|Location1.Y=331.375mil|Location2.Y=338.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C8-1(250mil,318.071mil) on Top Layer And Pad C8-2(250mil,351.929mil) on Top Layer [Top Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=65.564mil|Location2.X=72.814mil|Location1.Y=333.304mil|Location2.Y=340.554mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=65.564mil|Location2.X=72.814mil|Location1.Y=333.304mil|Location2.Y=340.554mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (4.598mil &lt; 6mil) Between Pad C9-1(85mil,353.858mil) on Bottom Layer And Pad C9-2(85mil,320mil) on Bottom Layer [Bottom Solder] Mask Sliver [4.598mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=126.615mil|Location2.Y=133.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=126.615mil|Location2.Y=133.865mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=225.04mil|Location2.Y=232.29mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=225.04mil|Location2.Y=232.29mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=244.725mil|Location2.Y=251.975mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=244.725mil|Location2.Y=251.975mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=205.355mil|Location2.Y=212.605mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=205.355mil|Location2.Y=212.605mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=244.725mil|Location2.Y=251.975mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=244.725mil|Location2.Y=251.975mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=146.3mil|Location2.Y=153.55mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=146.3mil|Location2.Y=153.55mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=185.67mil|Location2.Y=192.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=185.67mil|Location2.Y=192.92mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=205.355mil|Location2.Y=212.605mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=205.355mil|Location2.Y=212.605mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=165.985mil|Location2.Y=173.235mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=165.985mil|Location2.Y=173.235mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=146.3mil|Location2.Y=153.55mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=146.3mil|Location2.Y=153.55mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=225.04mil|Location2.Y=232.29mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=225.04mil|Location2.Y=232.29mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=185.67mil|Location2.Y=192.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=185.67mil|Location2.Y=192.92mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=165.985mil|Location2.Y=173.235mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=79.791mil|Location2.X=87.041mil|Location1.Y=165.985mil|Location2.Y=173.235mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=126.615mil|Location2.Y=133.865mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=209.712mil|Location2.X=216.962mil|Location1.Y=126.615mil|Location2.Y=133.865mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (5.876mil &lt; 6mil) Between Region (0 hole(s)) Top Solder And Region (0 hole(s)) Top Solder [Top Solder] Mask Sliver [5.876mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID3BLCUEG3UEGAINXHGUD2J0XRJKL1BHT3FY2UNDKGZPYI5KHTDFAF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=6mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=133.667mil|Location2.X=141.763mil|Location1.Y=314.018mil|Location2.Y=321.961mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=133.667mil|Location2.X=141.763mil|Location1.Y=314.018mil|Location2.Y=321.961mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.229mil &lt; 6mil) Between Arc (130.945mil,311.283mil) on Top Overlay And Pad C1-2(140mil,318.071mil) on Top Layer [Top Overlay] to [Top Solder] clearance [3.229mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=177.271mil|Location2.X=184.521mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=177.271mil|Location2.X=184.521mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C10-1(195mil,353.858mil) on Bottom Layer And Track (176.102mil,317.244mil)(176.102mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=205.479mil|Location2.X=212.729mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=205.479mil|Location2.X=212.729mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C10-1(195mil,353.858mil) on Bottom Layer And Track (213.898mil,317.244mil)(213.898mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=177.271mil|Location2.X=184.521mil|Location1.Y=327.005mil|Location2.Y=334.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=177.271mil|Location2.X=184.521mil|Location1.Y=327.005mil|Location2.Y=334.255mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C10-2(195mil,320mil) on Bottom Layer And Track (176.102mil,317.244mil)(176.102mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=205.479mil|Location2.X=212.729mil|Location1.Y=313.619mil|Location2.Y=320.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=205.479mil|Location2.X=212.729mil|Location1.Y=313.619mil|Location2.Y=320.869mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C10-2(195mil,320mil) on Bottom Layer And Track (213.898mil,317.244mil)(213.898mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=122.271mil|Location2.X=129.521mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=122.271mil|Location2.X=129.521mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C1-1(140mil,351.929mil) on Top Layer And Track (121.102mil,315.315mil)(121.102mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=150.479mil|Location2.X=157.729mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=150.479mil|Location2.X=157.729mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C1-1(140mil,351.929mil) on Top Layer And Track (158.898mil,315.315mil)(158.898mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=117.271mil|Location2.X=124.521mil|Location1.Y=505.076mil|Location2.Y=512.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=117.271mil|Location2.X=124.521mil|Location1.Y=505.076mil|Location2.Y=512.326mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C11-1(135mil,498.071mil) on Bottom Layer And Track (116.102mil,495.315mil)(116.102mil,534.685mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=145.479mil|Location2.X=152.729mil|Location1.Y=491.69mil|Location2.Y=498.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=145.479mil|Location2.X=152.729mil|Location1.Y=491.69mil|Location2.Y=498.94mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C11-1(135mil,498.071mil) on Bottom Layer And Track (153.898mil,495.315mil)(153.898mil,534.685mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=117.271mil|Location2.X=124.521mil|Location1.Y=517.674mil|Location2.Y=524.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=117.271mil|Location2.X=124.521mil|Location1.Y=517.674mil|Location2.Y=524.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C11-2(135mil,531.929mil) on Bottom Layer And Track (116.102mil,495.315mil)(116.102mil,534.685mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=145.479mil|Location2.X=152.729mil|Location1.Y=517.674mil|Location2.Y=524.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=145.479mil|Location2.X=152.729mil|Location1.Y=517.674mil|Location2.Y=524.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C11-2(135mil,531.929mil) on Bottom Layer And Track (153.898mil,495.315mil)(153.898mil,534.685mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=122.271mil|Location2.X=129.521mil|Location1.Y=325.076mil|Location2.Y=332.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=122.271mil|Location2.X=129.521mil|Location1.Y=325.076mil|Location2.Y=332.326mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C1-2(140mil,318.071mil) on Top Layer And Track (121.102mil,315.315mil)(121.102mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=150.479mil|Location2.X=157.729mil|Location1.Y=311.69mil|Location2.Y=318.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=150.479mil|Location2.X=157.729mil|Location1.Y=311.69mil|Location2.Y=318.94mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C1-2(140mil,318.071mil) on Top Layer And Track (158.898mil,315.315mil)(158.898mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=212.005mil|Location2.Y=219.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=212.005mil|Location2.Y=219.255mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C12-1(21.398mil,205mil) on Top Layer And Track (2.5mil,202.244mil)(2.5mil,241.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=198.619mil|Location2.Y=205.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=198.619mil|Location2.Y=205.869mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C12-1(21.398mil,205mil) on Top Layer And Track (40.295mil,202.244mil)(40.295mil,241.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=224.603mil|Location2.Y=231.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=224.603mil|Location2.Y=231.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C12-2(21.398mil,238.858mil) on Top Layer And Track (2.5mil,202.244mil)(2.5mil,241.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=224.603mil|Location2.Y=231.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=224.603mil|Location2.Y=231.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C12-2(21.398mil,238.858mil) on Top Layer And Track (40.295mil,202.244mil)(40.295mil,241.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=172.271mil|Location2.X=179.521mil|Location1.Y=505.076mil|Location2.Y=512.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=172.271mil|Location2.X=179.521mil|Location1.Y=505.076mil|Location2.Y=512.326mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C13-1(190mil,498.071mil) on Bottom Layer And Track (171.102mil,495.315mil)(171.102mil,534.685mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=200.479mil|Location2.X=207.729mil|Location1.Y=491.69mil|Location2.Y=498.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=200.479mil|Location2.X=207.729mil|Location1.Y=491.69mil|Location2.Y=498.94mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C13-1(190mil,498.071mil) on Bottom Layer And Track (208.898mil,495.315mil)(208.898mil,534.685mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=172.271mil|Location2.X=179.521mil|Location1.Y=517.674mil|Location2.Y=524.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=172.271mil|Location2.X=179.521mil|Location1.Y=517.674mil|Location2.Y=524.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C13-2(190mil,531.929mil) on Bottom Layer And Track (171.102mil,495.315mil)(171.102mil,534.685mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=200.479mil|Location2.X=207.729mil|Location1.Y=517.674mil|Location2.Y=524.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=200.479mil|Location2.X=207.729mil|Location1.Y=517.674mil|Location2.Y=524.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C13-2(190mil,531.929mil) on Bottom Layer And Track (208.898mil,495.315mil)(208.898mil,534.685mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=149.603mil|Location2.Y=156.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=149.603mil|Location2.Y=156.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C14-1(21.398mil,163.858mil) on Top Layer And Track (2.5mil,127.244mil)(2.5mil,166.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=149.603mil|Location2.Y=156.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=149.603mil|Location2.Y=156.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C14-1(21.398mil,163.858mil) on Top Layer And Track (40.295mil,127.244mil)(40.295mil,166.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16.375mil|Location2.X=23.625mil|Location1.Y=112.807mil|Location2.Y=120.057mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=16.375mil|Location2.X=23.625mil|Location1.Y=112.807mil|Location2.Y=120.057mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (5.877mil &lt; 6mil) Between Pad C14-2(21.398mil,130mil) on Top Layer And Text "R4" (20mil,92mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [5.877mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=137.005mil|Location2.Y=144.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=137.005mil|Location2.Y=144.255mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C14-2(21.398mil,130mil) on Top Layer And Track (2.5mil,127.244mil)(2.5mil,166.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=123.619mil|Location2.Y=130.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=123.619mil|Location2.Y=130.869mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C14-2(21.398mil,130mil) on Top Layer And Track (40.295mil,127.244mil)(40.295mil,166.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=122.271mil|Location2.X=129.521mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=122.271mil|Location2.X=129.521mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C2-1(140mil,353.858mil) on Bottom Layer And Track (121.102mil,317.244mil)(121.102mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=150.479mil|Location2.X=157.729mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=150.479mil|Location2.X=157.729mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C2-1(140mil,353.858mil) on Bottom Layer And Track (158.898mil,317.244mil)(158.898mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=122.271mil|Location2.X=129.521mil|Location1.Y=327.005mil|Location2.Y=334.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=122.271mil|Location2.X=129.521mil|Location1.Y=327.005mil|Location2.Y=334.255mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C2-2(140mil,320mil) on Bottom Layer And Track (121.102mil,317.244mil)(121.102mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=150.479mil|Location2.X=157.729mil|Location1.Y=313.619mil|Location2.Y=320.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=150.479mil|Location2.X=157.729mil|Location1.Y=313.619mil|Location2.Y=320.869mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C2-2(140mil,320mil) on Bottom Layer And Track (158.898mil,317.244mil)(158.898mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.479mil|Location2.X=102.729mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.479mil|Location2.X=102.729mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C3-1(85mil,351.929mil) on Top Layer And Track (103.898mil,315.315mil)(103.898mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=67.271mil|Location2.X=74.521mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=67.271mil|Location2.X=74.521mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C3-1(85mil,351.929mil) on Top Layer And Track (66.102mil,315.315mil)(66.102mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=80.176mil|Location2.X=87.426mil|Location1.Y=302.626mil|Location2.Y=309.876mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=80.176mil|Location2.X=87.426mil|Location1.Y=302.626mil|Location2.Y=309.876mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.381mil &lt; 6mil) Between Pad C3-2(85mil,318.071mil) on Top Layer And Text "U1" (70.472mil,283.567mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.381mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.479mil|Location2.X=102.729mil|Location1.Y=311.69mil|Location2.Y=318.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.479mil|Location2.X=102.729mil|Location1.Y=311.69mil|Location2.Y=318.94mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C3-2(85mil,318.071mil) on Top Layer And Track (103.898mil,315.315mil)(103.898mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=67.271mil|Location2.X=74.521mil|Location1.Y=325.076mil|Location2.Y=332.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=67.271mil|Location2.X=74.521mil|Location1.Y=325.076mil|Location2.Y=332.326mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C3-2(85mil,318.071mil) on Top Layer And Track (66.102mil,315.315mil)(66.102mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.769mil|Location2.X=17.019mil|Location1.Y=297.165mil|Location2.Y=304.415mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=9.769mil|Location2.X=17.019mil|Location1.Y=297.165mil|Location2.Y=304.415mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.877mil &lt; 6mil) Between Pad C4-1(21.398mil,313.858mil) on Top Layer And Text "C12" (3.398mil,276.858mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.877mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=299.603mil|Location2.Y=306.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=299.603mil|Location2.Y=306.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C4-1(21.398mil,313.858mil) on Top Layer And Track (2.5mil,277.244mil)(2.5mil,316.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=299.603mil|Location2.Y=306.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=299.603mil|Location2.Y=306.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C4-1(21.398mil,313.858mil) on Top Layer And Track (40.295mil,277.244mil)(40.295mil,316.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10.894mil|Location2.X=15.894mil|Location1.Y=274.358mil|Location2.Y=279.358mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=10.894mil|Location2.X=15.894mil|Location1.Y=274.358mil|Location2.Y=279.358mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 6mil) Between Pad C4-2(21.398mil,280mil) on Top Layer And Text "C12" (3.398mil,276.858mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=287.005mil|Location2.Y=294.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3.668mil|Location2.X=10.918mil|Location1.Y=287.005mil|Location2.Y=294.255mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C4-2(21.398mil,280mil) on Top Layer And Track (2.5mil,277.244mil)(2.5mil,316.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=273.619mil|Location2.Y=280.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=31.877mil|Location2.X=39.127mil|Location1.Y=273.619mil|Location2.Y=280.869mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C4-2(21.398mil,280mil) on Top Layer And Track (40.295mil,277.244mil)(40.295mil,316.614mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=267.271mil|Location2.X=274.521mil|Location1.Y=262.674mil|Location2.Y=269.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=267.271mil|Location2.X=274.521mil|Location1.Y=262.674mil|Location2.Y=269.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C5-1(285mil,276.929mil) on Top Layer And Track (266.102mil,240.315mil)(266.102mil,279.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=295.479mil|Location2.X=302.729mil|Location1.Y=262.674mil|Location2.Y=269.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=295.479mil|Location2.X=302.729mil|Location1.Y=262.674mil|Location2.Y=269.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C5-1(285mil,276.929mil) on Top Layer And Track (303.898mil,240.315mil)(303.898mil,279.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=267.271mil|Location2.X=274.521mil|Location1.Y=250.076mil|Location2.Y=257.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=267.271mil|Location2.X=274.521mil|Location1.Y=250.076mil|Location2.Y=257.326mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C5-2(285mil,243.071mil) on Top Layer And Track (266.102mil,240.315mil)(266.102mil,279.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=295.479mil|Location2.X=302.729mil|Location1.Y=236.69mil|Location2.Y=243.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=295.479mil|Location2.X=302.729mil|Location1.Y=236.69mil|Location2.Y=243.94mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C5-2(285mil,243.071mil) on Top Layer And Track (303.898mil,240.315mil)(303.898mil,279.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.271mil|Location2.X=239.521mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.271mil|Location2.X=239.521mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C6-1(250mil,353.858mil) on Bottom Layer And Track (231.102mil,317.244mil)(231.102mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=260.479mil|Location2.X=267.729mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=260.479mil|Location2.X=267.729mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C6-1(250mil,353.858mil) on Bottom Layer And Track (268.898mil,317.244mil)(268.898mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.271mil|Location2.X=239.521mil|Location1.Y=327.005mil|Location2.Y=334.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.271mil|Location2.X=239.521mil|Location1.Y=327.005mil|Location2.Y=334.255mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C6-2(250mil,320mil) on Bottom Layer And Track (231.102mil,317.244mil)(231.102mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=260.479mil|Location2.X=267.729mil|Location1.Y=313.619mil|Location2.Y=320.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=260.479mil|Location2.X=267.729mil|Location1.Y=313.619mil|Location2.Y=320.869mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C6-2(250mil,320mil) on Bottom Layer And Track (268.898mil,317.244mil)(268.898mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=177.271mil|Location2.X=184.521mil|Location1.Y=325.076mil|Location2.Y=332.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=177.271mil|Location2.X=184.521mil|Location1.Y=325.076mil|Location2.Y=332.326mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C7-1(195mil,318.071mil) on Top Layer And Track (176.102mil,315.315mil)(176.102mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=205.479mil|Location2.X=212.729mil|Location1.Y=311.69mil|Location2.Y=318.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=205.479mil|Location2.X=212.729mil|Location1.Y=311.69mil|Location2.Y=318.94mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C7-1(195mil,318.071mil) on Top Layer And Track (213.898mil,315.315mil)(213.898mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=177.271mil|Location2.X=184.521mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=177.271mil|Location2.X=184.521mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C7-2(195mil,351.929mil) on Top Layer And Track (176.102mil,315.315mil)(176.102mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=205.479mil|Location2.X=212.729mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=205.479mil|Location2.X=212.729mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C7-2(195mil,351.929mil) on Top Layer And Track (213.898mil,315.315mil)(213.898mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.271mil|Location2.X=239.521mil|Location1.Y=325.076mil|Location2.Y=332.326mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.271mil|Location2.X=239.521mil|Location1.Y=325.076mil|Location2.Y=332.326mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C8-1(250mil,318.071mil) on Top Layer And Track (231.102mil,315.315mil)(231.102mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=260.479mil|Location2.X=267.729mil|Location1.Y=311.69mil|Location2.Y=318.94mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=260.479mil|Location2.X=267.729mil|Location1.Y=311.69mil|Location2.Y=318.94mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C8-1(250mil,318.071mil) on Top Layer And Track (268.898mil,315.315mil)(268.898mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.271mil|Location2.X=239.521mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=232.271mil|Location2.X=239.521mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C8-2(250mil,351.929mil) on Top Layer And Track (231.102mil,315.315mil)(231.102mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=260.479mil|Location2.X=267.729mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=260.479mil|Location2.X=267.729mil|Location1.Y=337.674mil|Location2.Y=344.924mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C8-2(250mil,351.929mil) on Top Layer And Track (268.898mil,315.315mil)(268.898mil,354.685mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.479mil|Location2.X=102.729mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.479mil|Location2.X=102.729mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C9-1(85mil,353.858mil) on Bottom Layer And Track (103.898mil,317.244mil)(103.898mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=67.271mil|Location2.X=74.521mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=67.271mil|Location2.X=74.521mil|Location1.Y=339.603mil|Location2.Y=346.853mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C9-1(85mil,353.858mil) on Bottom Layer And Track (66.103mil,317.244mil)(66.103mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.479mil|Location2.X=102.729mil|Location1.Y=313.619mil|Location2.Y=320.869mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=95.479mil|Location2.X=102.729mil|Location1.Y=313.619mil|Location2.Y=320.869mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C9-2(85mil,320mil) on Bottom Layer And Track (103.898mil,317.244mil)(103.898mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=67.271mil|Location2.X=74.521mil|Location1.Y=327.005mil|Location2.Y=334.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=67.271mil|Location2.X=74.521mil|Location1.Y=327.005mil|Location2.Y=334.255mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.587mil &lt; 6mil) Between Pad C9-2(85mil,320mil) on Bottom Layer And Track (66.103mil,317.244mil)(66.103mil,356.614mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.587mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=117.298mil|Location2.X=124.548mil|Location1.Y=399.774mil|Location2.Y=407.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=117.298mil|Location2.X=124.548mil|Location1.Y=399.774mil|Location2.Y=407.024mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.87mil &lt; 6mil) Between Pad L1-1(111.575mil,425mil) on Multi-Layer And Text "C1" (122mil,390mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [3.87mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.742mil|Location2.X=128.992mil|Location1.Y=452.884mil|Location2.Y=460.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=121.742mil|Location2.X=128.992mil|Location1.Y=452.884mil|Location2.Y=460.134mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.089mil &lt; 6mil) Between Pad L1-1(111.575mil,425mil) on Multi-Layer And Text "C11" (110mil,460mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [1.089mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=114.487mil|Location2.X=121.737mil|Location1.Y=388.683mil|Location2.Y=395.933mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=114.487mil|Location2.X=121.737mil|Location1.Y=388.683mil|Location2.Y=395.933mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.17mil &lt; 6mil) Between Pad L1-1(111.575mil,425mil) on Multi-Layer And Text "C2" (155mil,391.929mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [4.17mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=84.404mil|Location2.X=89.404mil|Location1.Y=403.234mil|Location2.Y=408.234mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=84.404mil|Location2.X=89.404mil|Location1.Y=403.234mil|Location2.Y=408.234mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 6mil) Between Pad L1-1(111.575mil,425mil) on Multi-Layer And Text "C3" (67mil,389.071mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=84.314mil|Location2.X=89.314mil|Location1.Y=406.233mil|Location2.Y=411.233mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=84.314mil|Location2.X=89.314mil|Location1.Y=406.233mil|Location2.Y=411.233mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 6mil) Between Pad L1-1(111.575mil,425mil) on Multi-Layer And Text "C9" (100mil,391.929mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=199.088mil|Location2.X=204.088mil|Location1.Y=389.429mil|Location2.Y=394.429mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=199.088mil|Location2.X=204.088mil|Location1.Y=389.429mil|Location2.Y=394.429mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 6mil) Between Pad L1-2(210mil,425mil) on Multi-Layer And Text "C10" (227mil,391.929mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=174.768mil|Location2.X=182.824mil|Location1.Y=434.19mil|Location2.Y=442.175mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=174.768mil|Location2.X=182.824mil|Location1.Y=434.19mil|Location2.Y=442.175mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.206mil &lt; 6mil) Between Pad L1-2(210mil,425mil) on Multi-Layer And Text "C13" (158mil,460mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [3.206mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=224.621mil|Location2.X=231.871mil|Location1.Y=395mil|Location2.Y=402.25mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=224.621mil|Location2.X=231.871mil|Location1.Y=395mil|Location2.Y=402.25mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.863mil &lt; 6mil) Between Pad L1-2(210mil,425mil) on Multi-Layer And Text "C6" (265mil,391.929mil) on Bottom Overlay [Bottom Overlay] to [Bottom Solder] clearance [3.863mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=182.739mil|Location2.X=187.739mil|Location1.Y=407.493mil|Location2.Y=412.493mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=182.739mil|Location2.X=187.739mil|Location1.Y=407.493mil|Location2.Y=412.493mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 6mil) Between Pad L1-2(210mil,425mil) on Multi-Layer And Text "C7" (177mil,390mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=227.183mil|Location2.X=234.433mil|Location1.Y=391.409mil|Location2.Y=398.659mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=227.183mil|Location2.X=234.433mil|Location1.Y=391.409mil|Location2.Y=398.659mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (5.385mil &lt; 6mil) Between Pad L1-2(210mil,425mil) on Multi-Layer And Text "C8" (235mil,389.071mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [5.385mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=124.203mil|Location2.X=131.453mil|Location1.Y=105.036mil|Location2.Y=112.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=124.203mil|Location2.X=131.453mil|Location1.Y=105.036mil|Location2.Y=112.286mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.33mil &lt; 6mil) Between Pad U1-10(130.945mil,104.59mil) on Top Layer And Text "R2" (110mil,92mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [1.33mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=222.701mil|Location2.X=229.951mil|Location1.Y=110.927mil|Location2.Y=118.177mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=222.701mil|Location2.X=229.951mil|Location1.Y=110.927mil|Location2.Y=118.177mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.116mil &lt; 6mil) Between Pad U1-12(225.433mil,120.338mil) on Top Layer And Text "R3" (203mil,92mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.116mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.504mil|Location2.X=111.399mil|Location1.Y=110.642mil|Location2.Y=118.788mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=103.504mil|Location2.X=111.399mil|Location1.Y=110.642mil|Location2.Y=118.788mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.325mil &lt; 6mil) Between Pad U1-9(95.512mil,120.338mil) on Top Layer And Text "R2" (110mil,92mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.325mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID1OXKP2342ZQVGHNHSPZT3PCBAMTNZYIX2NRJFEKWUJB3BEFOSJSM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=6mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=225.714mil|Location2.X=232.964mil|Location1.Y=391.636mil|Location2.Y=398.886mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=225.714mil|Location2.X=232.964mil|Location1.Y=391.636mil|Location2.Y=398.886mil|Absolute=True">Silk To Silk Clearance Constraint: (1.678mil &lt; 6mil) Between Text "C10" (227mil,391.929mil) on Bottom Overlay And Text "C6" (265mil,391.929mil) on Bottom Overlay Silk Text to Silk Clearance [1.678mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=152.035mil|Location2.X=159.893mil|Location1.Y=454.709mil|Location2.Y=462.896mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=152.035mil|Location2.X=159.893mil|Location1.Y=454.709mil|Location2.Y=462.896mil|Absolute=True">Silk To Silk Clearance Constraint: (2.746mil &lt; 6mil) Between Text "C11" (110mil,460mil) on Bottom Overlay And Text "C13" (158mil,460mil) on Bottom Overlay Silk Text to Silk Clearance [2.746mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0.949mil|Location2.X=5.949mil|Location1.Y=291.019mil|Location2.Y=296.019mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0.949mil|Location2.X=5.949mil|Location1.Y=291.019mil|Location2.Y=296.019mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 6mil) Between Text "C12" (3.398mil,276.858mil) on Top Overlay And Track (2.5mil,277.244mil)(2.5mil,316.614mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=37.795mil|Location2.X=42.795mil|Location1.Y=274.051mil|Location2.Y=279.051mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=37.795mil|Location2.X=42.795mil|Location1.Y=274.051mil|Location2.Y=279.051mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 6mil) Between Text "C12" (3.398mil,276.858mil) on Top Overlay And Track (40.295mil,277.244mil)(40.295mil,316.614mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17.363mil|Location2.X=22.363mil|Location1.Y=104.161mil|Location2.Y=109.161mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=17.363mil|Location2.X=22.363mil|Location1.Y=104.161mil|Location2.Y=109.161mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 6mil) Between Text "C14" (6.398mil,90mil) on Top Overlay And Text "R4" (20mil,92mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=267.449mil|Location2.X=272.449mil|Location1.Y=329.161mil|Location2.Y=334.161mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=267.449mil|Location2.X=272.449mil|Location1.Y=329.161mil|Location2.Y=334.161mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 6mil) Between Text "C5" (270mil,315mil) on Top Overlay And Track (268.898mil,315.315mil)(268.898mil,354.685mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=107.5mil|Location2.X=112.5mil|Location1.Y=98.153mil|Location2.Y=103.153mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=107.5mil|Location2.X=112.5mil|Location1.Y=98.153mil|Location2.Y=103.153mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 6mil) Between Text "R2" (110mil,92mil) on Top Overlay And Track (91.575mil,100.653mil)(113.858mil,100.653mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=213.829mil|Location2.X=218.829mil|Location1.Y=99.325mil|Location2.Y=104.325mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=213.829mil|Location2.X=218.829mil|Location1.Y=99.325mil|Location2.Y=104.325mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 6mil) Between Text "R3" (203mil,92mil) on Top Overlay And Track (207.087mil,100.653mil)(229.37mil,100.653mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=87.95mil|Location2.X=95.2mil|Location1.Y=277.568mil|Location2.Y=284.818mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\josep\OneDrive - University of Waterloo\Documents\apple_wireless\Apple Pencil Qi Adapter\qi_adapter.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=87.95mil|Location2.X=95.2mil|Location1.Y=277.568mil|Location2.Y=284.818mil|Absolute=True">Silk To Silk Clearance Constraint: (1.748mil &lt; 6mil) Between Text "U1" (70.472mil,283.567mil) on Top Overlay And Track (91.575mil,277.819mil)(113.858mil,277.819mil) on Top Overlay Silk Text to Silk Clearance [1.748mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

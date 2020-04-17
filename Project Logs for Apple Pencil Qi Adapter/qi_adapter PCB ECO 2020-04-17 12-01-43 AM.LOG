@@ -1,0 +1,3 @@
+Added Component: Designator=J1(Lightning Connector)
+Add component. Clean all parameters for all variants
+Added Member To Class: ClassName=qi_adapter Member=Component J1 Lightning Socket

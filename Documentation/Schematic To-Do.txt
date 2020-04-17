@@ -1,13 +1,4 @@
-Pins to wire:
-
-- ILIM (Current Limit Set)
-
-Investigate:
-
-- FOD - Required for ILIM calcs
-
 Footprints:
-- Lightning Connector
 - May need to change coil spacing
 
 

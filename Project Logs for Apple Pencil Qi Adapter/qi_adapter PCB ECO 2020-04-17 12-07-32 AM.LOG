@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=NetC12_1 Pin=J1-5
+Added Room: Name=qi_adapter
