@@ -4,6 +4,8 @@ Footprints:
 
 General Notes
 -------------
+- PROBABLY ADD GROUND PLANE TO MAKE IT CLEANER
+
 
 Follow Recommended Layout Guidelines
 
