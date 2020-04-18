@@ -1,0 +1,21 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [Apple Pencil Qi Adapter.PrjPcb]
+   Generated File[qi_adapter.GTO]
+   Generated File[qi_adapter.GTS]
+   Generated File[qi_adapter.GTL]
+   Generated File[qi_adapter.GBL]
+   Generated File[qi_adapter.GBS]
+   Generated File[qi_adapter.GBO]
+   Generated File[qi_adapter.GM1]
+   Generated File[qi_adapter.GM4]
+   Generated File[qi_adapter.GKO]
+   Generated File[qi_adapter.RUL]
+   Generated File[qi_adapter.EXTREP]
+   Generated File[qi_adapter.REP]
+
+
+Files Generated   : 12
+Documents Printed : 0
+
+Finished Output Generation At 12:31:55 PM On 2020-04-18
